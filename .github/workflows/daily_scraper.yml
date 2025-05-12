@@ -1,0 +1,36 @@
+name: Ejecutar Scraper Diario
+
+on:
+  schedule:
+    - cron: '0 13 * * *'  # Ejecuta a las 10:00 UTC (7:00 AM en Chile)
+  workflow_dispatch:  # Permite ejecución manual desde la interfaz de GitHub
+
+jobs:
+  run-scraper:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Ejecutar script de scraping
+        run: python main_scraper.py
+        env:
+          REDIS_HOST: ${{ secrets.REDIS_HOST }}
+          REDIS_PORT: ${{ secrets.REDIS_PORT }}
+          REDIS_DB: ${{ secrets.REDIS_DB }}
+          REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
+          REDIS_TASKS_KEY_NAME: ${{ secrets.REDIS_TASKS_KEY_NAME }}
+          MONGO_CONNECTION_STRING: ${{ secrets.MONGO_CONNECTION_STRING }}
+          MONGO_DATABASE_NAME: ${{ secrets.MONGO_DATABASE_NAME }}
+          MONGO_COLLECTION_NAME: ${{ secrets.MONGO_COLLECTION_NAME }}
