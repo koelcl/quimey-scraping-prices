@@ -1,0 +1,5 @@
+requests
+lxml
+redis
+pymongo
+python-dotenv
