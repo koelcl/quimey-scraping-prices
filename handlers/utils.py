@@ -9,7 +9,7 @@ def limpiar_precio_arauco(texto_precio):
     if texto_precio:
         limpio = re.sub(r'[$.]|&nbsp;', '', texto_precio)
         limpio = re.sub(r'\s+', '', limpio)
-        return limpio.strip()
+        return int(limpio.strip())
     return None
 
 # Puedes añadir más funciones de utilidad aquí, por ejemplo:

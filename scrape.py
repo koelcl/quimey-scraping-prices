@@ -177,6 +177,7 @@ def main():
                                 {
                                     "$set": {
                                         "product_name_task": result.get("product_name_task"),
+                                        "product_detail": result.get("product_detail"),
                                         "source_url": result.get("source_url"),
                                         "distributor_name": result.get("distributor_name"),
                                         "current_price": board_price,
