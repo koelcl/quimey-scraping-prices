@@ -24,7 +24,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Ejecutar script de scraping
-        run: python main_scraper.py
+        run: python scrape.py
         env:
           REDIS_HOST: ${{ secrets.REDIS_HOST }}
           REDIS_PORT: ${{ secrets.REDIS_PORT }}
