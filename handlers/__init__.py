@@ -12,7 +12,7 @@ from .scrape_004 import handler_scrape_004
 # Crea el diccionario TASK_HANDLERS que el script principal utilizará
 TASK_HANDLERS = {
     'SCRAPE-001': handler_scrape_001, #Melamina Blanca
-    'SCRAPE-002': handler_scrape_002, #Tapacanto PVC blanco
+    'SCRAPE-002': handler_scrape_004, #Tapacanto PVC blanco
     'SCRAPE-003': handler_scrape_003, #Tornillo aglomerado 25mm
     'SCRAPE-004': handler_scrape_003, #Tornillo aglomerado 15mm
     'SCRAPE-005': handler_scrape_003, #Tornillo aglomerado 45mm
